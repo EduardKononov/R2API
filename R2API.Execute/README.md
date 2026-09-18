@@ -13,12 +13,20 @@ Execute sources added via this module will not stack with Freeze and Guillotines
 To add a non-stacking execute source that behaves like Vanilla:
 * `ExecuteAPI.CalculateExecuteThreshold` keeps track of the current execute fraction with a float `highestExecuteThreshold`. To match Vanilla behavior, override the value of this when appropriate.
 * `ExecuteAPI.CalculateExecuteThresholdForViewer` is similar, but factors in the Attacker/Person viewing the healthbar.
+* `ExecuteAPI.CalculateExecuteThresholdBypassImmunity` works like CalculateExecuteThreshold but bypasses the ImmuneToExecutes flag
+* `ExecuteAPI.CalculateExecuteThresholdForViewerBypassImmunity` works like CalculateExecuteThresholdForViewer but bypasses the ImmuneToExecutes flag
 
 To add a stackable execute source:
 * `ExecuteAPI.CalculateAdditiveExecuteThreshold` allows mod creators to increment the execute fraction additively with diminishing returns with the following formula: `1 - (1/(1 + executeFractionAdd))`
 * `ExecuteAPI.CalculateAdditiveExecuteThresholdForViewer` is similar, but factors in the Attacker/Person viewing the healthbar.
+* `ExecuteAPI.CalculateAdditiveExecuteThresholdBypassImmunity` works like CalculateAdditiveExecuteThreshold but bypasses the ImmuneToExecutes flag
+* `ExecuteAPI.CalculateAdditiveExecuteThresholdForViewerBypassImmunity` works like CalculateAdditiveExecuteThresholdForViewer but bypasses the ImmuneToExecutes flag
 
 ## Changelog
+
+### '1.1.3'
+
+* Added `BypassImmunity` variants that ignore the ImmuneToExecutes flag on target bodies
 
 ### '1.1.2'
 
